@@ -4,23 +4,40 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New InventoryItemData", menuName = "Inventory/BaseInventoryItemData")]
 public class InventoryItemData : ScriptableObject
 {
-    public string ID { get; private set; }
+    [SerializeField] private string _id;
+
+    [Space]
     public string Name;
 
+    //Because for some reason unity doesn't save
+    //the id if it { get; private set; }
+    public string GetId()
+    {
+        return _id;
+    }
+
 #if UNITY_EDITOR
+
+    private void OnValidate()
+    {
+        if(!string.IsNullOrEmpty(_id)) { return; }
+
+        GenerateID();
+        PrintId();
+    }
 
     [ContextMenu("Generate a new ID")]
     private void GenerateID()
     {
-        ID = $"Bebra_InventoryItem#{Guid.NewGuid().ToString()}";
+        _id = $"Bebra_InventoryItem#{Guid.NewGuid().ToString()}";
     }
 
     [ContextMenu("Print in console the ID")]
     private void PrintId()
     {
-        if(String.IsNullOrEmpty(ID) == false)
+        if(string.IsNullOrEmpty(_id) == false)
         {
-            Debug.Log($"{name} ID is: {ID}");
+            Debug.Log($"{name} ID is: {_id}");
         }
         else
         {

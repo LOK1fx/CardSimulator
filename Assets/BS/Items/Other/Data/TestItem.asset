@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8481bb2cea75944faf22c93b7358004, type: 3}
   m_Name: TestItem
   m_EditorClassIdentifier: 
+  _id: Bebra_InventoryItem#e598947f-f032-4654-bc99-c87a9099627d
   Name: Karto

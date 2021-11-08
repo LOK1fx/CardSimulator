@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc546c70a0b9bc2409d47169362de8c4, type: 3}
   m_Name: TestCard
   m_EditorClassIdentifier: 
+  _id: Bebra_InventoryItem#63978f95-7596-429f-8d2e-dd38adf73a89
   Name: TestCard
-  RarityIndex: 2
-  Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  RarityIndex: 4
+  Sprite: {fileID: 21300000, guid: c879de4b645ae5d45b8b4dde15b8a4eb, type: 3}
