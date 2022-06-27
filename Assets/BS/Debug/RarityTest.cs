@@ -29,7 +29,7 @@ namespace Tests
 
             _card = Instantiate(_cardPrefab, transform);
 
-            _rarityAtSteps[_step % SAVED_STEPS_COUNT] = _card.RarityIndex;
+            _rarityAtSteps[_step % SAVED_STEPS_COUNT] = _card.Data.RarityIndex;
 
             _step++;
 

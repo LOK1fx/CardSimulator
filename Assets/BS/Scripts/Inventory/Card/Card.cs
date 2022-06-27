@@ -4,33 +4,30 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
-    public int RarityIndex { get; private set; }
-
-    [SerializeField] private CardData _data;
+    public CardData Data;
 
     [Space]
+    [SerializeField] private Image _highlight;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _name;
 
-    private void Awake()
+    private void Start()
     {
-        _image.sprite = _data.Sprite;
-        _name.text = _data.Name;
+        if(Data == null) { return; }
 
-        //testing rarity
-        var rarityIndex = Random.Range(0, 8);
+        _image.sprite = Data.Sprite;
+        _name.text = Data.Name;
 
-        if(CardRarityManager.TryGetRarityAtIndex(rarityIndex, out var rarity))
-        {
-            RarityIndex = rarityIndex;
-
-            _name.color = rarity.Color;
-            _name.text = $"{_name.text}({rarity.Name})";
-        }
+        SetRarity(Data.RarityIndex);
     }
 
-    public CardData GetData()
+    private void SetRarity(int rarityIndex)
     {
-        return _data;
+        if (CardRarityManager.TryGetRarityByIndex(rarityIndex, out var rarity))
+        {
+            _highlight.color = rarity.Color;
+            _name.color = rarity.Color;
+            _name.text = $"{_name.text}\n({rarity.Name})";
+        }
     }
 }

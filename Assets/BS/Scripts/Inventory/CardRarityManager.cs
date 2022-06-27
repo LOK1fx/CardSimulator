@@ -7,7 +7,7 @@ public class CardRarityManager
     private static bool _rarityListIsLoaded = false;
     private static CardRarityData _rarityData;
 
-    public static bool TryGetRarityAtIndex(int index, out Rarity rarity)
+    public static bool TryGetRarityByIndex(int index, out Rarity rarity)
     {
         if(_rarityListIsLoaded == false)
         {
